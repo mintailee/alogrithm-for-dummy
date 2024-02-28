@@ -12,12 +12,11 @@ export interface User {
 
 export function search(arr: User[], id: number): User {
     let firstIndex = 0;
-    let lastIndex = arr.length - 1;
+    let lastIndex = arr.length
     
-    while(firstIndex < lastIndex) {
+    while(firstIndex <= lastIndex) {
         const midIndex = Math.floor((firstIndex + lastIndex) / 2);
         const user = arr[midIndex];
-        
         if(user.id === id) {
             return user;
         } else if (user.id > id) {
@@ -34,7 +33,6 @@ export function searchRecursive(arr: User[], id: number): User {
         if(arr[0].id === id) {
             return arr[0];
         }
-        console.log(arr[0].id);
         throw Error(`We didn't found any user with the id: ${id} in your list`);
     }
     const midIndex = Math.floor(arr.length / 2);
@@ -43,7 +41,7 @@ export function searchRecursive(arr: User[], id: number): User {
     if(user.id === id) {
         return user;
     }
-    const start = user.id > id ? 0 : midIndex + 1;
+    const start = user.id > id ? 0 : midIndex;
     const end = user.id > id ? midIndex : arr.length;
     return searchRecursive(arr.slice(start, end), id);
 }
