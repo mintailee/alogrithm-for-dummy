@@ -7,6 +7,6 @@ describe('Quick sort', () => {
         const array = [3, 1, 7, 5, 4, 6];
         const arrayQS = quickSort(array);
         expect(arrayQS).toEqual(array.sort());
-        expect(arrayQS[0]).toBe(1);    
+        expect(arrayQS[0]).toBe(1);
     })
 });
